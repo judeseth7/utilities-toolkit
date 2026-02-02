@@ -120,9 +120,3 @@ print(convert_temperature(32, "fahrenheit"))  # fahrenheit -> celsius
 - Python 3.6+
 - No external libraries required
 
-## License
-You can add a license of your choice (e.g., MIT). If you want, I can add a `LICENSE` file for you.
-
----
-
-If you'd like, I can also: add `argparse` support, replace `random` with `secrets`, or add tests — tell me which and I'll implement it. ✨
