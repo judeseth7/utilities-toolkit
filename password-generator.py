@@ -8,6 +8,8 @@ def generate_password(length):
         choice = random.choice(password_character_pool)
         password += choice
     return password
+
+
 try:
     length = int(input("Enter password length: "))
     if length >= 1:
