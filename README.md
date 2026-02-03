@@ -4,6 +4,7 @@ This repository is a lightweight toolkit of small, focused command-line utilitie
 
 - `password-generator.py` — simple random password generator 🔐
 - `unit-converter.py` — interactive unit converter (length, temperature, weight) 🔁
+- `organiser.py` — lightweight folder organizer (sorts files into type folders) 🗂️
 
 ---
 
@@ -106,6 +107,39 @@ print(convert_temperature(32, "fahrenheit"))  # fahrenheit -> celsius
 - The CLI expects the unit choice strings shown above (case-insensitive where `.lower()` is used in the script).
 - Conversion functions return `None` for unsupported unit strings — handle this in callers.
 - Results are returned as floats; format the output as desired for display.
+
+---
+
+## Organiser 🗂️
+
+**Lightweight folder organizer** that sorts files into folders by extension.
+
+### Features ✅
+- Moves files into type-specific folders based on extension
+- Configurable `FILE_TYPES` mapping to adjust categories
+- Creates destination folders as needed and prints moved files
+
+### Usage ▶️
+Run the script from the folder you want to organize (or change the `FOLDER` constant in the script):
+
+```bash
+python organiser.py
+```
+
+Example output:
+
+```
+Moved example.png → Images
+Moved report.pdf → PDFs
+```
+
+### Use as a module 🔧
+You can import and call `organize_folder` from other Python code:
+
+```python
+from organiser import organize_folder
+organize_folder()
+```
 
 ---
 
