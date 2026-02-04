@@ -142,13 +142,28 @@ organize_folder()
 ```
 
 ---
-
 ## Improvements / Ideas 💡
-- Add CLI flags (e.g., with `argparse`) for non-interactive usage and scripting
-- Allow toggling character sets for the password generator (upper/lower/digits/symbols)
-- Replace `random` with `secrets` for secure password generation when needed
-- Expand `unit-converter.py` to support additional units and better unit parsing
-- Add unit tests for both scripts and input validation
+
+- **`organiser.py`:**
+	- Add a CLI with flags: `--folder` / `--target`, `--dry-run` (preview), `--recursive`, and `--ignore` patterns.
+	- Support a configuration file (JSON/YAML) for `FILE_TYPES` mappings and ignore lists.
+	- Provide conflict-handling policies: `rename` (auto-increment), `skip`, or `overwrite` (with optional confirmation).
+	- Implement a safe staging/undo workflow (log moves, or move to a temporary staging folder then finalize) so operations can be reversed.
+	- Offer MIME-based detection (via `mimetypes` or `python-magic`) and treat extensions case-insensitively.
+	- Add `--dry-run` mode and verbose logging; optionally show a progress bar for large directories (`tqdm`).
+	- Add unit tests that create sample files in a temp directory and verify folder organization and conflict handling.
+
+- **`password-generator.py`:**
+	- Offer a secure mode using the `secrets` module (`--secure`) and flags for toggling character classes (upper, lower, digits, symbols) and length.
+	- Add an option to copy generated passwords to clipboard (`pyperclip`) and an option to output machine-readable formats for scripting.
+
+- **`unit-converter.py`:**
+	- Add non-interactive CLI arguments for direct conversions (e.g., `--from 10km --to miles`).
+	- Expand supported units and improve parsing; consider integrating `pint` for robust unit handling.
+	- Add conversion table unit tests and examples.
+
+- **Performance & robustness:**
+	- Handle large directories efficiently (batch moves, streaming, optional threading), validate inputs thoroughly, and add clear error messages.
 
 ## Requirements ⚙️
 - Python 3.6+
